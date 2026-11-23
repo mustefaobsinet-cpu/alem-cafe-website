@@ -3,8 +3,11 @@ import os
 import dj_database_url
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'dev-only-change-before-deployment-please')
-DEBUG = os.environ.get('DJANGO_DEBUG', '1') == '1'
+DEBUG = DEBUG = os.environ.get('DJANGO_DEBUG', '0') == '1'
 ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
+CSRF_TRUSTED_ORIGINS = os.environ.get(
+    'DJANGO_CSRF_TRUSTED_ORIGINS', ''
+).split(',')
 INSTALLED_APPS = [
     'django.contrib.admin','django.contrib.auth','django.contrib.contenttypes',
     'django.contrib.sessions','django.contrib.messages','django.contrib.staticfiles','cafe',
