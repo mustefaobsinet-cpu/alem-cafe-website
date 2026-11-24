@@ -18,4 +18,4 @@ urlpatterns = [
  path('owner/account/', views.owner_account, name='owner_account'),
 ]
 if settings.DEBUG:
- urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOTpath('temporary-owner-setup/', views.setup_owner_account, name='setup_owner_account'),)
